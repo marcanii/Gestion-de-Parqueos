@@ -26,7 +26,7 @@
                             <a class="nav-link active"  href="javascript:cargarContenido('return.html')">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript:cargarContenido('reservas.html')">Reservas</a>
+                            <a class="nav-link" href="javascript:cargarContenido('reservas.php')">Reservas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Tarifas</a>
@@ -63,6 +63,11 @@
             </div>
         </div>
     </main>
+
+    <div class="container mt-4">
+        <h3>Notificaciones</h3>
+        <p  id="notificacion"> </p>
+    </div>
     
     <!-- Footer con información de contacto -->
     <footer class="text-blue mt-5 py-3" id="piedepagina">
@@ -84,6 +89,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="ajax.js"></script>
-</body>
+    <script>
+        // Definir la función que deseas ejecutar
+        function enviarNotificacion() {
+            console.log("Este es mi script automático.");
+            //cargarContenido('notificacion.php');
+            fetch('notificacion.php')
+                .then(response => response.text())
+                .then(data => document.getElementById("notificacion").innerHTML = data);
+        }
+        // Configurar la ejecución automática cada 10 segundos (10000 milisegundos)
+        var intervalo = setInterval(enviarNotificacion, 10000);
 
+        // Puedes detener la ejecución automática en cualquier momento si es necesario
+        clearInterval(intervalo);
+    </script>
+</body>
 </html>

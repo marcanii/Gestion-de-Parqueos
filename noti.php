@@ -1,30 +1,19 @@
 <?php
-require_once 'vendor/autoload.php'; // Reemplaza con el archivo de la biblioteca que elijas
+    // Update the path below to your autoload.php,
+    // see https://getcomposer.org/doc/01-basic-usage.md
+    require_once 'vendor/autoload.php';
+    use Twilio\Rest\Client;
 
-// Configura las credenciales de Twilio
-$accountSid = 'ACa6e9414457df7ef67611f169e31eb0a1';
-$authToken = '58ecf09bd18a3a5f96b3fc4cda44cee9';
+    $sid    = "ACa6e9414457df7ef67611f169e31eb0a1";
+    $token  = "857fcb8221e198d7b9bd4db81ba38ac2";
+    $twilio = new Client($sid, $token);
 
-// Inicializa el cliente de Twilio
-$client = new Twilio\Rest\Client($accountSid, $authToken);
+    $message = $twilio->messages
+      ->create("whatsapp:+59169677638", // to
+        array(
+          "from" => "whatsapp:+14155238886",
+          "body" => "Hola, somos de la empresa de parqueo, le recordamos que su parqueo expira en 15 minutos. Por favor, diríjase a la empresa para renovar su parqueo o retirar su vehículo para evitar sanciones. Gracias."
+        )
+      );
 
-// Número de teléfono de destino (con prefijo internacional, ej. +1 para Estados Unidos)
-$recipientNumber = '+59169677638';
-
-// Mensaje que deseas enviar
-$message = 'Hola, este es un mensaje de prueba desde mi aplicación PHP.';
-
-try {
-    // Envía el mensaje de WhatsApp
-    $client->messages->create(
-        $recipientNumber,
-        [
-            'from' => 'whatsapp:+tu_numero_de_whatsapp', // Debe estar registrado en WhatsApp Business
-            'body' => $message
-        ]
-    );
-
-    echo 'Mensaje enviado con éxito.';
-} catch (Exception $e) {
-    echo 'Error al enviar el mensaje: ' . $e->getMessage();
-}
+print($message->sid);
