@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2023 a las 03:55:00
+-- Tiempo de generación: 20-08-2023 a las 00:21:49
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -42,7 +42,7 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`placa`, `ci`, `nombres`, `apellidos`, `telefono`, `descripcionvehiculo`) VALUES
 ('111-ABC', '10101010', 'jose', 'miranda', 69677638, 'camioneta blanca'),
-('222-ABC', '20202020', 'nestor', 'garcia', 72895575, 'vagoneta negra');
+('222-ABC', '20202020', 'nestor', 'garcia', 69677638, 'vagoneta negra');
 
 -- --------------------------------------------------------
 
@@ -56,16 +56,19 @@ CREATE TABLE `parqueo` (
   `fecha` date NOT NULL,
   `horaentrada` time NOT NULL,
   `horasalida` time NOT NULL,
-  `observaciones` varchar(120) NOT NULL
+  `estado_parqueo` int(5) NOT NULL,
+  `observaciones` varchar(120) NOT NULL,
+  `estado_noti` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `parqueo`
 --
 
-INSERT INTO `parqueo` (`idparqueo`, `placa`, `fecha`, `horaentrada`, `horasalida`, `observaciones`) VALUES
-(1, '111-ABC', '2023-08-18', '21:41:05', '22:41:05', 'ninguna observacion'),
-(2, '222-ABC', '2023-08-19', '20:41:05', '21:41:05', 'ninguna observacion');
+INSERT INTO `parqueo` (`idparqueo`, `placa`, `fecha`, `horaentrada`, `horasalida`, `estado_parqueo`, `observaciones`, `estado_noti`) VALUES
+(1, '111-ABC', '2023-08-18', '21:41:05', '18:41:05', 1, 'ninguna observacion', 0),
+(2, '222-ABC', '2023-08-19', '16:41:05', '18:20:00', 0, 'ninguna observacion', 1),
+(3, '222-ABC', '2023-08-19', '17:51:32', '18:51:32', 1, 'ninguna', 0);
 
 -- --------------------------------------------------------
 
@@ -124,7 +127,7 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `parqueo`
 --
 ALTER TABLE `parqueo`
-  MODIFY `idparqueo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idparqueo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`

@@ -97,12 +97,15 @@
             fetch('notificacion.php')
                 .then(response => response.text())
                 .then(data => document.getElementById("notificacion").innerHTML = data);
+            
+            fetch('reservas.php')
+                .then(response => response.text());
         }
         // Configurar la ejecución automática cada 10 segundos (10000 milisegundos)
         var intervalo = setInterval(enviarNotificacion, 10000);
 
         // Puedes detener la ejecución automática en cualquier momento si es necesario
-        clearInterval(intervalo);
+        //clearInterval(intervalo);
     </script>
 </body>
 </html>

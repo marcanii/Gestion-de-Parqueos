@@ -17,7 +17,7 @@
                 // echo "Hora actual: " . $horaActual . "<br>";
                 // echo "Fecha actual: " . $fechaActual . "<br>";
                 // Actualizar registros donde la hora de salida sea menor o igual a la hora actual
-                $consulta1 = "UPDATE parqueo SET estado_parqueo = 0 WHERE '$horaActual' > horasalida AND estado_parqueo = 1 OR '$fechaActual' > fecha";
+                $consulta1 = "UPDATE parqueo SET estado_parqueo = 0 WHERE '$horaActual' > horasalida AND estado_parqueo = 1 AND '$fechaActual' >= fecha";
                 // Ejecutar la consulta
                 $con->query($consulta1);
                 
