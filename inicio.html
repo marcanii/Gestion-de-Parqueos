@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body id="all">
+
+    <!-- Header con logo y menú de navegación -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid lead" id="barranavegacion">
+                
+                <div class="navbar-brand " href="#">
+                    <img src="./images/carlogo1.png" alt="Logo" class="img-fluid" id="logo" width="50" height="50">
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active"  href="javascript:cargarContenido('return.html')">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:cargarContenido('reservas.html')">Reservas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tarifas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Informes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal (vacío por ahora) -->
+    <main class="container mt-4" id="contenido">
+        <div class="row">
+            <!-- Descripción de la página -->
+            <div class="col-md-6 lead">
+                <h1>Bienvenido al parqueo "El Auto dormido"</h1>
+                <p>Aquí ofrecemos los mejores servicios de estacionamiento en la ciudad. Con una amplia variedad de opciones, nuestros clientes siempre encuentran el mejor lugar para sus vehículos. Reserva tu espacio ahora y disfruta de la comodidad de estar cerca de tus destinos favoritos.</p>
+            </div>
+            
+            <!-- Imagen de portada -->
+            <div class="col-md-6">
+                <img src="./images/cars.jpg" alt="Imagen del parqueo" class="img-fluid" id="img">
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer con información de contacto -->
+    <footer class="text-blue mt-5 py-3" id="piedepagina">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-4 lead">
+                    <h5>Contacto</h5>
+                    <p>Dirección: Calle 123, Sucre</p>
+                    <p>Teléfono: 72866723</p>
+                    <p>Email: ejemplo@dominio.com</p>
+                </div>
+                <!-- Puedes agregar más columnas con información adicional si lo necesitas -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap (JQuery, Popper.js y Bootstrap JS) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="ajax.js"></script>
+</body>
+
+</html>
