@@ -1,3 +1,7 @@
+<?php
+session_start(); // Iniciar
+
+?>
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
@@ -6,7 +10,7 @@
                 <?php
                 include("conexion.php");
                 // Cantidad de espacios totales solo para fines de ejemplo
-                $espacios_totales = 10;
+                $espacios_totales = 12;
 
                 // establecer zona horaria
                 date_default_timezone_set('America/La_Paz');
@@ -17,7 +21,7 @@
                 // echo "Hora actual: " . $horaActual . "<br>";
                 // echo "Fecha actual: " . $fechaActual . "<br>";
                 // Actualizar registros donde la hora de salida sea menor o igual a la hora actual
-                $consulta1 = "UPDATE parqueo SET estado_parqueo = 0 WHERE '$horaActual' > horasalida AND estado_parqueo = 1 AND '$fechaActual' >= fecha";
+                $consulta1 = "UPDATE parqueo SET estado_parqueo = 0 WHERE '$horaActual' > horasalida AND estado_parqueo = 1 AND '$fechaActual' <= fecha";
                 // Ejecutar la consulta
                 $con->query($consulta1);
                 
@@ -29,7 +33,7 @@
                         if ($espacios_totales - $fila["NumOcup"] <= 0) {
                             echo "No hay espacios disponibles, lo sentimos.";
                         } else {
-                            echo "Espacios disponibles: " . ($espacios_totales - $fila["NumOcup"]);
+                            echo "Espacios disponibless: " . ($espacios_totales - $fila["NumOcup"]);
                         }
                     }
                 } else { // Si no hay resultados
@@ -43,8 +47,15 @@
 
     <div class="row justify-content-center mt-4">
         <div class="col-md-6 text-center">
-            <button class="btn btn-primary btn-lg" id="btnReservar">Reservar un Espacio</button>
+            <div ><label for="" class=" h1">Reservar un espacio escogiendo fecha y hora de entrada</label></div>
+            
+            <button class="btn btn-primary btn-lg" onclick="cargarContenido('formreserva.html')" id="btnReservar">Reservar un Espacio </button>
+        </div>
+        <div class="col-md-6 text-center">
+            <div><label for="" class=" h1">Estoy ahi en 30 minutos o menos</label></div>
+            
+            <button class="btn btn-primary btn-lg" onclick="reservar2()" id="btnReservar2">Reserva rapida</button>
         </div>
     </div>
-</div>
+</div>  
 
