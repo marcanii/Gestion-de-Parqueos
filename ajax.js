@@ -9,7 +9,7 @@ function cargarContenido(url) {
 }
 
 function autenticar() {
-    alert("entroform");
+    // alert("entroform");
     var formulario = document.getElementById("formLogin");
     var parametros = new FormData(formulario);
     var ajax = new XMLHttpRequest();
