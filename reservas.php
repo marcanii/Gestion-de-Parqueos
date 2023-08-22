@@ -1,6 +1,6 @@
 <?php
 session_start(); // Iniciar
-
+// $espacios_totales=10;
 ?>
 <div class="container mt-4">
     <div class="row justify-content-center">
@@ -10,17 +10,21 @@ session_start(); // Iniciar
                 <?php
                 include("conexion.php");
                 // Cantidad de espacios totales solo para fines de ejemplo
-                $espacios_totales = 20;
-
+                if(isset($_SESSION['$espaciostotaless']))
+                {
+                    $espacios_totales = $_SESSION['$espaciostotaless'];
+                }
+                else{
+                    $_SESSION['$espaciostotaless'] = 15;
+                    $espacios_totales = $_SESSION['$espaciostotaless'];
+                }
                 // establecer zona horaria
                 date_default_timezone_set('America/La_Paz');
 
                 // Obtener la hora actual
                 $horaActual = date("H:i:s");
                 $fechaActual = date("Y:m:d");
-                // echo "Hora actual: " . $horaActual . "<br>";
-                // echo "Fecha actual: " . $fechaActual . "<br>";
-                // Actualizar registros donde la hora de salida sea menor o igual a la hora actual
+                
                 $consulta1 = "UPDATE parqueo SET estado_parqueo = 0 WHERE '$horaActual' > horasalida AND estado_parqueo = 1 AND '$fechaActual' <= fecha";
                 // Ejecutar la consulta
                 $con->query($consulta1);
@@ -30,10 +34,12 @@ session_start(); // Iniciar
                 $resultado = $con->query($consulta); // Ejecutar la consulta
                 if ($resultado->num_rows > 0) { // Si hay resultados
                     while ($fila = $resultado->fetch_assoc()) {
-                        if ($espacios_totales - $fila["NumOcup"] <= 0) {
+                        $espacios_ocupados = $fila["NumOcup"];
+                        $espacios_disponibles = $espacios_totales - $espacios_ocupados;
+                        if ($espacios_disponibles <= 0) {
                             echo "No hay espacios disponibles, lo sentimos.";
                         } else {
-                            echo "Espacios disponibless: " . ($espacios_totales - $fila["NumOcup"]);
+                            echo "Espacios disponibles: " . $espacios_disponibles;
                         }
                     }
                 } else { // Si no hay resultados
