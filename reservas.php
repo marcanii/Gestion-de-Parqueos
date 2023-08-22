@@ -10,7 +10,7 @@ session_start(); // Iniciar
                 <?php
                 include("conexion.php");
                 // Cantidad de espacios totales solo para fines de ejemplo
-                $espacios_totales = 12;
+                $espacios_totales = 20;
 
                 // establecer zona horaria
                 date_default_timezone_set('America/La_Paz');

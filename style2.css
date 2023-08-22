@@ -22,3 +22,12 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.text-color-custom {
+    color: #fff;
+}
+.text-color-custom:hover {
+    color: #55d1da;
+}
+.text-color-custom:focus {
+    color: #55d1da;
+}
