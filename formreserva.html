@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style2.css">
+
+</head>
+
+<body>
+    <!-- Header con logo y menú de navegación -->
+    <header>
+            
+        <nav class="navbar navbar-expand-lg  border-body"  style="background-color: #232329;" >
+    
+            <div class="container">
+                <a class="navbar-brand text-white" href="#">
+                    <img src="images/carlogo1.png   " alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    El auto dormido 
+                </a>
+              </div>
+            <div class="container-fluid">
+              <a class="navbar-brand text-color-custom" href="javascript:cargarContenido('return.html')">Inicio</a>
+              <button class="navbar-toggler text-success-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link text-color-custom" aria-current="page" href="javascript:cargarContenido('reservas.php')">Reservas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-color-custom" href="#">Tarifas</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-color-custom" href="#">Informes</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-color-custom" href="#">Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-color-custom" href="#">Sign Up</a>
+                  </li>
+                  
+                </ul>
+                
+              </div>
+            </div>
+          </nav>
+</header> 
+    <form action="javascript:reservar1()" method="post" id="formReserva1">
+        <div
+    class=" fondo bg-image p-2 text-center shadow-1-strong   text-white img-fluid  justify-content-center align-items-center" id="contenido"
+    style="background-image: url(images/estacionamiento1.jpg); "
+  >
+  <h1 class="mb-5 text-center">RESERVAS</h1>
+  <div>
+      <label for="" class="form-label">Fecha deseada de reserva</label>
+  <input type="date" name="fechareserva" id="fechareserva" class="form-control" aria-describedby="date">
+  </div>
+  <div>
+      <label for="" class="form-label">Hora de la  reserva</label>
+  <input type="time" name="horainiciores" id="horainiciores" class="form-control" aria-describedby="date">
+  </div>
+  <div>
+      <label for="" class="form-label">Hora aproximada de salida</label>
+  <input type="time" name="horafinalres" id="horafinalres" class="form-control" aria-describedby="date">  
+</div>
+  <div class="container text-center mt-3">
+      <button type="submit" class="btn btn-success">Reservar</button>
+  </div>
+  </div>
+        
+<!-- footer   -->
+<footer class="text-center text-lg-start bg-dark text-white" >
+ 
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+  
+      <div class="me-5 d-none d-lg-block">
+        <span>Conectate con nosotros en las redes sociales:</span>
+      </div>
+  
+      <div>
+        <a href="" class="me-4 text-reset">
+            <i class="bi bi-facebook"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+            <i class="bi bi-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+            <i class="bi bi-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+            <i class="bi bi-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+            <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+            <i class="bi bi-github"></i>
+        </a>
+      </div>
+      
+    </section>
+    
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        
+        <div class="row mt-3">
+          
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>El Auto Dormido
+            </h6>
+            <p>
+              Aquí ofrecemos los mejores servicios de estacionamiento en la ciudad. Con una amplia variedad de opciones, nuestros clientes siempre encuentran el mejor lugar para sus vehículos.
+            </p>
+          </div>
+          
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+  
+            <h6 class="text-uppercase fw-bold mb-4">
+              Servicios
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Estacionamiento</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Servicio 2</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Servicio 3</a>
+            </p>
+  
+          </div>
+          
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+  
+            <h6 class="text-uppercase fw-bold mb-4">
+              Enlaces utiles
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Reservas</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Tarifas</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Configuracion</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Ayuda</a>
+            </p>
+          </div>
+  
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+            <p><i class="fas fa-home me-3"></i> Avenida Hernando Siles, Sucre - Bolivia</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@ejemplo.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 591 70000000</p>
+            <p><i class="fas fa-print me-3"></i> + 591 70000000</p>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" href="">AutoDormido.com</a>
+    </div>
+  </footer>
+  <!-- footer   -->
+    </form>
+        <!-- Scripts de Bootstrap (JQuery, Popper.js y Bootstrap JS) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script src="ajax.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

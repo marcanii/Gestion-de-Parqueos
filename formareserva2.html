@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body onload="reservar2()">
+
+    <form action="crearReserva2.php" method="post" id="formReserva2">
+        <!-- Eliminamos los campos de fecha y hora del formulario ya que los estableceremos automáticamente -->
+        <div>
+            <button type="submit" class="btn btn-outline-success">Reservar</button>
+        </div>
+    </form>
+    <!-- Scripts de Bootstrap (JQuery, Popper.js y Bootstrap JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="ajax.js"></script>
+</body>
+
+</html>
