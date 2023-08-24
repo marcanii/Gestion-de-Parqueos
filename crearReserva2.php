@@ -3,13 +3,13 @@ session_start();
 $fecha = $_POST['fecha'];
 $horaentrada = $_POST['horaentrada'];
 $horasalida = $_POST['horasalida'];
-if(isset($_SESSION['$espaciostotaless']))
+if(isset($_SESSION['$espacios']))
     {
-        $espacios_totales = $_SESSION['$espaciostotaless'];
+        $espacios_totales = $_SESSION['$espacios'];
     }
     else{
-        $_SESSION['$espaciostotaless'] = 15;
-        $espacios_totales = $_SESSION['$espaciostotaless'];
+        $_SESSION['$espacios'] = 25;
+        $espacios_totales = $_SESSION['$espacios'];
     }
 
 if(isset($_SESSION['ci']) and isset($_SESSION['placa'])) {
@@ -24,7 +24,7 @@ $resultado = $con->query($sql1);
 if ($resultado->num_rows > 0) { // Si hay resultados
     while($fila = $resultado->fetch_assoc()) {
         $numOcup = $fila['numOcup'];
-        if($numOcup <= $espacios_totales) {
+        if($numOcup < $espacios_totales) {
             $sql2 = "INSERT INTO parqueo (placa,fecha, horaentrada, horasalida, estado_parqueo, observaciones, estado_noti) 
             VALUES ('$placa','$fecha','$horaentrada','$horasalida',1,'Reserva rapida, cliente en camino ',0)";
 

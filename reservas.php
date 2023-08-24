@@ -10,13 +10,11 @@ session_start(); // Iniciar
                 <?php
                 include("conexion.php");
                 // Cantidad de espacios totales solo para fines de ejemplo
-                if(isset($_SESSION['$espaciostotaless']))
-                {
-                    $espacios_totales = $_SESSION['$espaciostotaless'];
-                }
-                else{
-                    $_SESSION['$espaciostotaless'] = 15;
-                    $espacios_totales = $_SESSION['$espaciostotaless'];
+                if(isset($_SESSION['$espacios'])){
+                    $espacios_totales = $_SESSION['$espacios'];
+                }else{
+                    $_SESSION['$espacios'] = 25;
+                    $espacios_totales = $_SESSION['$espacios'];
                 }
                 // establecer zona horaria
                 date_default_timezone_set('America/La_Paz');
@@ -36,10 +34,15 @@ session_start(); // Iniciar
                     while ($fila = $resultado->fetch_assoc()) {
                         $espacios_ocupados = $fila["NumOcup"];
                         $espacios_disponibles = $espacios_totales - $espacios_ocupados;
+                        // echo "eSPACIOS DIS: " . $espacios_disponibles;
+                        // echo "<br>";
+                        // echo "ESPACIOS TOT :" . $espacios_totales;
+                        // echo "<br>";
+                        // echo "ESPACIOS OCUP :" . $espacios_ocupados;
                         if ($espacios_disponibles <= 0) {
                             echo "No hay espacios disponibles, lo sentimos.";
                         } else {
-                            echo "Espacios disponibles: " . $espacios_disponibles;
+                            echo $espacios_disponibles;
                         }
                     }
                 } else { // Si no hay resultados
@@ -51,17 +54,39 @@ session_start(); // Iniciar
         </div>
     </div>
 
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-6 text-center">
+    <div class="row justify-content-center mt-4"> 
+        <div class="card mx-3" style="width: 18rem ;">
+            <img src="images/happy.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Planificar mi reserva</h5>
+                    <p class="card-text">Reservar un espacio escogiendo fecha y hora de entrada</p>
+                    <a class="btn btn-primary" href="javascript:cargarContenido('formreserva0.html')"  id="btnReservar" style="background-color: #41c9c9;">Reservar un espacio</a>
+                    <!-- <a class="nav-link text-color-custom" href="javascript:cargarContenido('reservas.php')">Reservas</a> -->
+                </div>
+        </div>          
+    
+    
+        <div class="card mx-3" style="width: 18rem;">
+            <img src="images/impatientdriver.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Estoy corto de tiempo</h5>
+                    <p class="card-text">Estoy ahi en 30 minutos o menos.</p>
+                    <a href="#" class="btn btn-primary"onclick="reservar2()" id="btnReservar2" style="background-color: #41c9c9;" >Reserva rapida</a>
+                </div>
+        </div>
+    </div>
+
+        <!-- <div class="col-md-6 text-center">
             <div ><label for="" class=" h1">Reservar un espacio escogiendo fecha y hora de entrada</label></div>
             
-            <button class="btn btn-primary btn-lg" onclick="cargarContenido('formreserva.html')" id="btnReservar">Reservar un Espacio </button>
-        </div>
-        <div class="col-md-6 text-center">
+            <button class="btn btn-primary btn-lg" onclick="cargarContenido('formreserva.html')" id="btnReservar">Reservar un Espacioooo </button>
+        </div> -->
+
+        <!-- <div class="col-md-6 text-center">
             <div><label for="" class=" h1">Estoy ahi en 30 minutos o menos</label></div>
             
             <button class="btn btn-primary btn-lg" onclick="reservar2()" id="btnReservar2">Reserva rapida</button>
-        </div>
-    </div>
-</div>  
+        </div> -->
 
+    <!-- </div> -->
+</div>  
