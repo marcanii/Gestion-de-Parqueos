@@ -1,17 +1,32 @@
-
-#navbarNav{
-    margin-right: 100px;
+.navbar{
+    background-color: #232329;
+    height: 80px;
 }
-
-
-#barranavegacion{
-    background-color: rgb(210, 214, 215);
-    border: 1px solid rgb(0, 0, 0);
-    margin: 60px;
-    
+.text-title{
+    font-size: 30px;
+    color: azure;
 }
-#piedepagina{
-    background-color: rgb(210, 214, 215);
-    
-    margin: 60px;
+.text-color-custom{
+    color: #ffffff;
+    font-size: 20px;
+}
+.text-color-custom:hover{
+    color: #41c9c9;
+    font-size: 21px;
+}
+.text-color-custom:focus{
+    color: #41c9c9;
+    font-size: 21px;
+}
+.main-custom{
+    background-image: url(images/estacionamiento.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    width: auto;
+}
+.main-custom, a {
+    color: #ffffff;
+    font-size: 20px;
 }

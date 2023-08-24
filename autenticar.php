@@ -10,8 +10,8 @@ $resultado = $con->query($sql);
 if($resultado->num_rows > 0) {
     $unicafila = $resultado->fetch_assoc();
     setcookie('carnet', $carnet, 0);
-    $_SESSION['nombres'] = $unicafila['nombres'];
     $_SESSION['ci'] = $unicafila['ci'];
+    $_SESSION['placa'] = $unicafila['placa'];
     echo json_encode(array("success" => true));
 } else {
     echo json_encode(array("success" => false));
