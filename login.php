@@ -8,7 +8,6 @@
     <title>LOGIN</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/index.css" />
 
     <style>
         .bg-custom {

@@ -30,3 +30,14 @@
     color: #ffffff;
     font-size: 20px;
 }
+
+.bg-btn-custom{
+    background-color: #5cd2c6;
+}
+.bg-btn-custom:hover{
+    background-color: #8ecbcf;
+}
+.bg-black-transparent {
+    background-color: rgba(0, 0, 0, 0.5); /* Negro con una opacidad del 50% */
+    margin: 0 auto;
+}
