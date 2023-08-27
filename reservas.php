@@ -34,11 +34,7 @@ session_start(); // Iniciar
                     while ($fila = $resultado->fetch_assoc()) {
                         $espacios_ocupados = $fila["NumOcup"];
                         $espacios_disponibles = $espacios_totales - $espacios_ocupados;
-                        // echo "eSPACIOS DIS: " . $espacios_disponibles;
-                        // echo "<br>";
-                        // echo "ESPACIOS TOT :" . $espacios_totales;
-                        // echo "<br>";
-                        // echo "ESPACIOS OCUP :" . $espacios_ocupados;
+                   
                         if ($espacios_disponibles <= 0) {
                             echo "No hay espacios disponibles, lo sentimos.";
                         } else {
@@ -76,17 +72,5 @@ session_start(); // Iniciar
         </div>
     </div>
 
-        <!-- <div class="col-md-6 text-center">
-            <div ><label for="" class=" h1">Reservar un espacio escogiendo fecha y hora de entrada</label></div>
-            
-            <button class="btn btn-primary btn-lg" onclick="cargarContenido('formreserva.html')" id="btnReservar">Reservar un Espacioooo </button>
-        </div> -->
-
-        <!-- <div class="col-md-6 text-center">
-            <div><label for="" class=" h1">Estoy ahi en 30 minutos o menos</label></div>
-            
-            <button class="btn btn-primary btn-lg" onclick="reservar2()" id="btnReservar2">Reserva rapida</button>
-        </div> -->
-
-    <!-- </div> -->
+    
 </div>  
