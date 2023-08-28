@@ -15,7 +15,11 @@ if(isset($_SESSION['$espacios']))
 if(isset($_SESSION['ci']) and isset($_SESSION['placa'])) {
     $ci = $_SESSION['ci'];
     $placa = $_SESSION['placa'];
-} 
+}
+else {
+    // redireccionar a login rompiendo el flujo de ejecución
+    header("Location: login.php");
+}
 
 include('conexion.php');
 

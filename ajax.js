@@ -19,7 +19,7 @@ function autenticar() {
         if (ajax.readyState == 4 && ajax.status == 200) {
             var respuesta = JSON.parse(ajax.responseText);
             if (respuesta.success) {
-                window.location = "inicio.html";
+                window.location = "inicio.php";
             } else {
                 window.location = "errorautenticacion.php";
             }

@@ -64,7 +64,7 @@
             
             <div class="d-flex gap-1 justify-content-center mt-1">
                 <div>No tienes una cuenta?</div>
-                <a href="#" class="text-decoration-none color-text-custom fw-semibold">Registrar</a>
+                <a href="#" class="text-decoration-none color-text-custom fw-semibold">Registrarse</a>
             </div>
 
             <div class="p-3">

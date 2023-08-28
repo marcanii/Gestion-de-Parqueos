@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Reserva</title>
+    <title>Tarifas</title>
     <style>
         .card {
             width: auto;
@@ -85,22 +85,18 @@
                 $resultado = $con->query($consulta1); // Ejecutar la consulta
                 if ($resultado->num_rows > 0) { // Si hay resultados
                     ?>
-                    
                     <table>
                     <tr>
-                        <th>Id Tarifa</th>
                         <th>Tipo tarifa</th>
                         <th>Descripcion</thtd>
                         <th>Precio</th>
                         <?php
-                        if($_SESSION['nivel'] == 1)
+                        if (isset($_SESSION['nivel']) && $_SESSION['nivel'] == 1)
                         {
                         ?>
                         <th>Acciones</th>
                         <th>Acciones</th>
-                        <?php   
-
-
+                        <?php
                         }
                         ?>
                     </tr>
@@ -108,12 +104,11 @@
                     while ($fila = $resultado->fetch_assoc()) {
                     ?>
                     <tr>
-                        <td><?php echo $fila["idtarifa"]; ?></td>
                         <td><?php echo $fila["tipotarifa"]; ?></td>
                         <td><?php echo $fila["descripciontarifa"]; ?></td>
                         <td><?php echo $fila["valor"]; ?></td>
                         <?php
-                        if($_SESSION['nivel'] == 1)
+                        if (isset($_SESSION['nivel']) && $_SESSION['nivel'] == 1)
                         {
                         ?>
                         <td><a href="javascript:void(0)" onclick="editartarifa('<?php echo $fila['idtarifa']; ?>', '<?php echo $fila['tipotarifa']; ?>')">Editar</a></td>
@@ -130,7 +125,7 @@
                 } else { // Si no hay resultados
                     echo "0 results";
                 }
-                if($_SESSION['nivel']==1)
+                if (isset($_SESSION['nivel']) && $_SESSION['nivel'] == 1)
                 {
                     ?>
                     
