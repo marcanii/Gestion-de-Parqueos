@@ -27,10 +27,11 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 150px;
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #8ecbcf;
         }
 
         table {
@@ -78,9 +79,7 @@
                         ?>
                         <th>Acciones</th>
                         <th>Acciones</th>
-                        <?php   
-
-
+                        <?php
                         }
                         ?>
                     </tr>
@@ -98,12 +97,9 @@
                         ?>
                         <td><a href="javascript:void(0)" onclick="editartarifa('<?php echo $fila['idtarifa']; ?>', '<?php echo $fila['tipotarifa']; ?>')">Editar</a></td>
                         <td><a href="javascript:void(0)" onclick="eliminartarifa('<?php echo $fila['idtarifa']; ?>')">Eliminar</a></td>
-                        
-                        
                     <?php
                         }
                     }
-
                     ?>
                     </table>
                     <?php

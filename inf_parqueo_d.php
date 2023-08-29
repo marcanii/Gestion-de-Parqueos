@@ -50,7 +50,7 @@
         </table>
         <hr style="color:white;">
         <div class="">
-            <a href="inicio.html" class="btn bg-btn-custom mx-3">Volver</a>
+            <a href="inicio.php" class="btn bg-btn-custom mx-3">Volver</a>
             <button id="exportButton" class="btn bg-btn-custom">Descargar como Excel</button>
         </div>
         <hr style="color:white;">

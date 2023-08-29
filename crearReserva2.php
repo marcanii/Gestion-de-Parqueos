@@ -16,11 +16,7 @@ if(isset($_SESSION['ci']) and isset($_SESSION['placa'])) {
     $ci = $_SESSION['ci'];
     $placa = $_SESSION['placa'];
 }
- else
-{
-    header("Location: login.php");
-}
-
+echo $placa;
 include('conexion.php');
 
 $sql1= "SELECT count(*) as numOcup from parqueo where estado_parqueo = 1";

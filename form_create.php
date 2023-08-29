@@ -42,11 +42,15 @@ include('conexion.php');
 ?>
 <div class="card">
     <form action="javascript:crear1()" method="POST" id="formCrear1">
-       
-        <div>
-            <label for="tipotarifa">Tipo tarifa</label>
-           <input type="text" name="tipotarifa"> 
-           
+        <div class="form-group">
+            <label for="tipotarifa">Tipo tarifa:</label>
+            <select name="tipotarifa" id="tipotarifa">
+                <option value="Diaria">Diaria</option>
+                <option value="Semanal">Semanal</option>
+                <option value="Mensual">Mensual</option>
+                <option value="Rápida">Rápida</option>
+                <option value="Planeada">Planeada</option>
+            </select>
         </div>
         <div>
             <label for="Descripcion">Descripcion :</label>

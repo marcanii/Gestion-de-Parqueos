@@ -14,9 +14,6 @@ session_start(); ?>
     <style>
         .bg-btn-custom{
             background-color: #5cd2c6;
-            width: 120px;
-            margin-left: 10px;
-            color: white;
         }
         .bg-btn-custom:hover{
             background-color: #8ecbcf;

@@ -55,8 +55,12 @@ session_start(); // Iniciar
                 <div class="card-body">
                     <h5 class="card-title">Planificar mi reserva</h5>
                     <p class="card-text">Reservar un espacio escogiendo fecha y hora de entrada</p>
+                    <?php
+                    if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['ci'])) { ?>
                     <a class="btn btn-primary" href="javascript:cargarContenido('formreserva0.html')"  id="btnReservar" style="background-color: #41c9c9;">Reservar un espacio</a>
-                    <!-- <a class="nav-link text-color-custom" href="javascript:cargarContenido('reservas.php')">Reservas</a> -->
+                    <?php } else { ?>
+                    <a class="btn btn-primary" href="login.php"  id="btnReservar" style="background-color: #41c9c9;">Iniciar Sesion</a>
+                    <?php } ?>
                 </div>
         </div>          
     
@@ -66,7 +70,12 @@ session_start(); // Iniciar
                 <div class="card-body">
                     <h5 class="card-title">Estoy corto de tiempo</h5>
                     <p class="card-text">Estoy ahi en 30 minutos o menos.</p>
+                    <?php
+                    if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['ci'])) { ?>
                     <a class="btn btn-primary" onclick="reservar2()" id="btnReservar2" style="background-color: #41c9c9;" >Reserva rapida</a>
+                    <?php } else { ?>
+                    <a class="btn btn-primary" href="login.php"  id="btnReservar" style="background-color: #41c9c9;">Iniciar Sesion</a>
+                    <?php } ?>
                 </div>
         </div>
     </div>
