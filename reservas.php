@@ -9,7 +9,6 @@ session_start(); // Iniciar
             <p class="display-4" id="espaciosLibres">
                 <?php
                 include("conexion.php");
-                // Cantidad de espacios totales solo para fines de ejemplo
                 if(isset($_SESSION['$espacios'])){
                     $espacios_totales = $_SESSION['$espacios'];
                 }else{
@@ -24,7 +23,7 @@ session_start(); // Iniciar
                 $fechaActual = date("Y:m:d");
                 
                 $consulta1 = "UPDATE parqueo SET estado_parqueo = 0 WHERE '$horaActual' > horasalida AND estado_parqueo = 1 AND '$fechaActual' <= fecha";
-                // Ejecutar la consulta
+                
                 $con->query($consulta1);
                 
                 // Obtener la cantidad de espacios ocupados
@@ -67,7 +66,7 @@ session_start(); // Iniciar
                 <div class="card-body">
                     <h5 class="card-title">Estoy corto de tiempo</h5>
                     <p class="card-text">Estoy ahi en 30 minutos o menos.</p>
-                    <a href="#" class="btn btn-primary"onclick="reservar2()" id="btnReservar2" style="background-color: #41c9c9;" >Reserva rapida</a>
+                    <a class="btn btn-primary" onclick="reservar2()" id="btnReservar2" style="background-color: #41c9c9;" >Reserva rapida</a>
                 </div>
         </div>
     </div>

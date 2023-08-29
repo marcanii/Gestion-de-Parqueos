@@ -18,17 +18,17 @@ if(isset($_SESSION['placa'])) {
 include('conexion.php');
 
 date_default_timezone_set('America/La_Paz');
-$fechaActual = date("Y-m-d");
-$fechaReserva = date("Y-m-d", strtotime($fechareserva)); // Convertir la fecha de reserva a formato Y-m-d
 
+$fechaactual = date("Y-m-d");
 $horaActual = new DateTime();
+
 $horainicioresObj = new DateTime($horainiciores);
 $difHoras = $horainicioresObj->diff($horaActual);
 
-if ($fechaActual > $fechaReserva) {
+if ($fechaactual > $fechareserva) {
     echo "No se permite la reserva porque la fecha de reserva ya pasó.";
 } 
-else if($fechareserva == $fechaActual and $difHoras->h < 3) {
+else if($fechareserva == $fechaactual and $difHoras->h < 3) {
     echo "No se permite la reserva porque la hora de reserva es en menos de 3 horas.";
 }
 else{
@@ -36,7 +36,10 @@ else{
         VALUES ('$horainiciores','$fechareserva','$horafinalres','$ci',1)";
 
         if ($con->query($sql2) === TRUE) {
-            echo "Se añadió el registro correctamente";
+            echo "Se realizo la reserva correctamente! <br>";
+            echo "Su fecha de reserva: ".$fechareserva."<br>";
+            echo "Lo esperamos a las: ".$horainiciores."<br>";
+            echo "La reserva culmina a las: ".$horafinalres."<br>";
         } else {
             echo "Error: " . $sql2 . "<br>" . $con->error;
         }

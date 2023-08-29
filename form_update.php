@@ -5,6 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .card {
+            width: auto;
+            max-width: 700px;
+            height: auto;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #232329;
+            color: white;
+            
+        }
+
+        #submit{
+            margin-top: 10px;
+            background-color: #41c9c9;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
 <?php 
@@ -49,7 +75,7 @@ $fila=$resultado->fetch_assoc();
         </div>
 
 
-        <input type="submit" value="Actualizar">
+        <input type="submit" value="Actualizar" id="submit">
 
     </form>
 </div>

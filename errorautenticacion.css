@@ -1,7 +1,10 @@
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: red; /* Esto es opcional, pero puede ayudar a centrar verticalmente el contenido */
-  }
+    
+  font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: rgb(246, 245, 245);
+  background-image: url(images/estacionamiento.jpg); /* Esto es opcional, pero puede ayudar a centrar verticalmente el contenido */
+}
