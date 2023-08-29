@@ -49,8 +49,6 @@ function editartarifa(idtarifa, tipotarifa) {
 
 function editar1() {
     var contenido = document.getElementById("contenido");
-
-    alert("entro")
     var formulario = document.getElementById("formEditar1");
     var parametros = new FormData(formulario);
     f = new FormData();
@@ -70,8 +68,6 @@ function editar1() {
 }
 function crear1() {
     var contenido = document.getElementById("contenido");
-
-    alert("entro")
     var formulario = document.getElementById("formCrear1");
     var parametros = new FormData(formulario);
     f = new FormData();
@@ -106,8 +102,6 @@ function eliminartarifa(idtarifa) {
 
 function reservar1(button) {
     var contenido = document.getElementById("contenido");
-
-    alert("entro")
     var formulario = document.getElementById("formReserva1");
     var parametros = new FormData(formulario);
     f = new FormData();

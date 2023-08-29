@@ -3,22 +3,26 @@ session_start();
 $fecha = $_POST['fecha'];
 $horaentrada = $_POST['horaentrada'];
 $horasalida = $_POST['horasalida'];
-if(isset($_SESSION['$espacios']))
-    {
-        $espacios_totales = $_SESSION['$espacios'];
-    }
-    else{
-        $_SESSION['$espacios'] = 25;
-        $espacios_totales = $_SESSION['$espacios'];
-    }
 
-if(isset($_SESSION['ci']) and isset($_SESSION['placa'])) {
+if(isset($_SESSION['$espacios']))
+{
+$espacios_totales = $_SESSION['$espacios'];
+}else
+{
+$_SESSION['$espacios'] = 25;
+$espacios_totales = $_SESSION['$espacios'];
+}
+
+
+if(isset($_SESSION['ci']) and isset($_SESSION['placa']) and $_SESSION['nivel']==0) {
     $ci = $_SESSION['ci'];
     $placa = $_SESSION['placa'];
+    
 }
  else
 {
-    header("Location: login.php");
+    echo "Debe logearse como cliente para poder realizar las reservas";
+    exit;
 }
 
 include('conexion.php');
