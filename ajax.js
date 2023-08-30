@@ -126,7 +126,7 @@ function reservar2(button) {
     // buttonReservar2.disabled = true;
     const fechaActual = new Date().toISOString().slice(0, 10);
     const horaActual = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
+    
     // Calculamos la hora de salida sumando 1 hora a la hora de entrada(luego cambiamos cuando llegue el cliente)
     const horaEntrada = new Date();
     const horaSalida = new Date(horaEntrada);

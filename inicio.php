@@ -71,15 +71,15 @@ session_start(); ?>
                     <?php
                     if (!(session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['ci']))) { ?>
                     <li class="nav-item">
-                        <a class="btn bg-btn-custom" href="cerrar_sesion.php">Login</a>
+                        <a class="btn bg-btn-custom text-white" href="login.php" style="width: 150px;">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn bg-btn-custom" href="cerrar_sesion.php">Sign up</a>
+                        <a class="btn bg-btn-custom text-white" href="#" style="width: 150px; margin-left:10px;">Sign up</a>
                     </li>
                     <?php }
                     if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['ci'])) { ?>
                     <li class="nav-item">
-                        <a class="btn bg-btn-custom" href="cerrar_sesion.php">Cerrar Sesión</a>
+                        <a class="btn bg-btn-custom text-white" href="cerrar_sesion.php">Cerrar Sesión</a>
                     </li>
                     <?php } ?>
                 </ul>

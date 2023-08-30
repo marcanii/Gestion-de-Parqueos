@@ -1,6 +1,8 @@
 <?php
 session_start();
-$fecha = $_POST['fecha'];
+// obtener la fecha actual
+date_default_timezone_set('America/La_Paz');
+$fecha = date("Y-m-d");
 $horaentrada = $_POST['horaentrada'];
 $horasalida = $_POST['horasalida'];
 
