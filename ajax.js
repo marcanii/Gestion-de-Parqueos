@@ -51,9 +51,7 @@ function editar1() {
     var contenido = document.getElementById("contenido");
     var formulario = document.getElementById("formEditar1");
     var parametros = new FormData(formulario);
-    f = new FormData();
-    f.add
-
+ 
     var ajax = new XMLHttpRequest();
     ajax.open('POST', 'update.php', true);
     ajax.onreadystatechange = function () {
@@ -70,8 +68,7 @@ function crear1() {
     var contenido = document.getElementById("contenido");
     var formulario = document.getElementById("formCrear1");
     var parametros = new FormData(formulario);
-    f = new FormData();
-    f.add
+    
 
     var ajax = new XMLHttpRequest();
     ajax.open('POST', 'create.php', true);
@@ -104,9 +101,7 @@ function reservar1(button) {
     var contenido = document.getElementById("contenido");
     var formulario = document.getElementById("formReserva1");
     var parametros = new FormData(formulario);
-    f = new FormData();
-    f.add
-
+    
     var ajax = new XMLHttpRequest();
     ajax.open('POST', 'crearReserva1.php', true);
     ajax.onreadystatechange = function () {
@@ -124,7 +119,7 @@ function reservar1(button) {
 
 function reservar2(button) {
     // buttonReservar2.disabled = true;
-    const fechaActual = new Date().toISOString().slice(0, 10);
+
     const horaActual = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     
     // Calculamos la hora de salida sumando 1 hora a la hora de entrada(luego cambiamos cuando llegue el cliente)
@@ -136,7 +131,7 @@ function reservar2(button) {
     const horaSalidaFormateada = horaSalida.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     const datos = {
-        fecha: fechaActual,
+        // fecha: fechaActual,
         horaentrada: horaActual,
         horasalida: horaSalidaFormateada, 
     };
