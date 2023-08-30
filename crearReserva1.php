@@ -4,15 +4,14 @@ $fechareserva = $_POST['fechareserva'];
 $horainiciores = $_POST['horainiciores'];
 $horafinalres = $_POST['horafinalres'];
 
-if(isset($_SESSION['ci'])) {
+if(isset($_SESSION['ci']) and isset($_SESSION['placa']) and $_SESSION['nivel']==0) {
     $ci = $_SESSION['ci'];
-} else {
-    $ci = 0;
-}
-if(isset($_SESSION['placa'])) {
     $placa = $_SESSION['placa'];
-} else {
-    $placa = 0;
+}
+ else
+{
+    echo "Debe logearse como cliente para poder realizar las reservas";
+    exit;
 }
 
 include('conexion.php');

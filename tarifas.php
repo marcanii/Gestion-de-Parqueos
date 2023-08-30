@@ -62,7 +62,9 @@
                 session_start(); 
                 $consulta1 = "SELECT * FROM TARIFA";
                 $con->query($consulta1);
-                
+                if(!isset($_SESSION['nivel'])){
+                    $_SESSION['nivel']=0;
+                }
                 $resultado = $con->query($consulta1); 
                 if ($resultado->num_rows > 0) {
                     ?>
