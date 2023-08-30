@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Reserva</title>
+    <style>
+        .card {
+            width: 28rem;
+            height: auto;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #232329;
+            color: white;
+            
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="date"],
+        input[type="time"] {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            margin-top: 10px;
+            background-color: #41c9c9;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Formulario de Reserva</h2>
+        <form action="javascript:reservar1()" method="post" id="formReserva1">
+            <label for="fechareserva">Fecha de reserva</label>
+            <input type="date" name="fechareserva" id="fechareserva">
+            
+            <label for="horainiciores">Hora de reserva</label>
+            <input type="time" name="horainiciores" id="horainiciores">
+            
+            <label for="horafinalres">Hora aproximada de salida</label>
+            <input type="time" name="horafinalres" id="horafinalres">
+            
+            <button type="submit" class="btn">Reservar</button>
+        </form>
+    </div>
+</body>
+</html>
