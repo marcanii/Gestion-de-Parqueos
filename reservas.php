@@ -82,16 +82,12 @@ session_start(); // Iniciar
                                             </tr>
                                             <tr>
                                             <?php
-                                            
                                         }
                                     }
-
                                     ?>
                                     </tr>
-                                
                             </table>
                         <?php
-
                         if ($espacios_disponibles <= 0) {
                             echo "No hay espacios disponibles, lo sentimos.";
                         } else {
@@ -102,15 +98,12 @@ session_start(); // Iniciar
                                 <h2>Deseas realizar una reserva?</h1>
                                 <?php
                             }?></h2>
-                            
-                        
                            <?php
                         }
                     }
                 } else { // Si no hay resultados
                     echo "0 results";
                 }
-                
                 ?>
             </p>
         </div>
@@ -162,9 +155,6 @@ session_start(); // Iniciar
         ?>
         
         <h2> Tus reservas vigentes: </h2>
-        <
-        
-
             <div class="card mx-3 mt-4" style="width: 18rem;">
                 <img src="images/modify.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -205,7 +195,4 @@ session_start(); // Iniciar
     ?>
 
 </div>
-
-
-    
 </div>  
