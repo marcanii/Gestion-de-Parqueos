@@ -46,6 +46,20 @@ function editartarifa(idtarifa, tipotarifa) {
   ajax.send(data);
 }
 
+function editarReservaProgramada(id_reserva) {
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', 'form_updateres.php', true);
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  
+    ajax.onreadystatechange = function() {
+      if (ajax.readyState == 4) {
+        contenido.innerHTML = ajax.responseText;
+      }
+    };
+  
+    var data = 'id_reserva=' + encodeURIComponent(id_reserva);
+    ajax.send(data);
+  }
 
 function editar1() {
     var contenido = document.getElementById("contenido");
@@ -97,6 +111,36 @@ function eliminartarifa(idtarifa) {
     ajax.send(data);
   }
 
+  function eliminarReserva(idparqueo) {
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', 'deleteReserva.php', true);
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  
+    ajax.onreadystatechange = function() {
+      if (ajax.readyState == 4) {
+        contenido.innerHTML = ajax.responseText;
+      }
+    };
+  
+    var data = 'idparqueo=' + encodeURIComponent(idparqueo);
+    ajax.send(data);
+  }
+
+  function eliminarReservaProgramada(id_reserva) {
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', 'deleteReservaProg.php', true);
+    ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  
+    ajax.onreadystatechange = function() {
+      if (ajax.readyState == 4) {
+        contenido.innerHTML = ajax.responseText;
+      }
+    };
+  
+    var data = 'id_reserva=' + encodeURIComponent(id_reserva);
+    ajax.send(data);
+  }
+  
 function reservar1(button) {
     var contenido = document.getElementById("contenido");
     var formulario = document.getElementById("formReserva1");
@@ -115,7 +159,23 @@ function reservar1(button) {
 
 }
 
+function editarReservaProg3(button) {
+    var contenido = document.getElementById("contenido");
+    var formulario = document.getElementById("formEditar3");
+    var parametros = new FormData(formulario);
+    
+    var ajax = new XMLHttpRequest();
+    ajax.open('POST', 'editarReservaProg.php', true);
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState == 4) {
+            contenido.innerHTML = ajax.responseText;
+        }
+    };
+    ajax.send(parametros);
+    button.disabled = true;
+    button.style.backgroundColor = "gray";
 
+}
 
 function reservar2(button) {
     // buttonReservar2.disabled = true;
