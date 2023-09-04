@@ -5,15 +5,15 @@ session_start(); // Iniciar
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <h2 style= "margin-bottom:50px">Espacios Disponibles en este momento:</h2>
+            <h2 style= "margin-bottom:50px; color: #5cd2c6">Nuestro parqueo en tiempo real:</h2>
             <p class="display-4" id="espaciosLibres">
                 <?php
                 include("conexion.php");
-                if(isset($_SESSION['$espacios'])){
-                    $espacios_totales = $_SESSION['$espacios'];
+                if(isset($_SESSION['$espacios2'])){
+                    $espacios_totales = $_SESSION['$espacios2'];
                 }else{
-                    $_SESSION['$espacios'] = 25;
-                    $espacios_totales = $_SESSION['$espacios'];
+                    $_SESSION['$espacios2'] = 31;
+                    $espacios_totales = $_SESSION['$espacios2'];
                 }
                 if(isset($_SESSION['nivel']))
                     if($_SESSION['nivel']==1){
@@ -51,51 +51,73 @@ session_start(); // Iniciar
                         $espacios_ocupados = $fila["NumOcup"];
                         $espacios_disponibles = $espacios_totales - $espacios_ocupados;
                         ?>
-                            <table style="border-collapse: collapse; margin-left: auto; margin-right: auto">
-                                    <tr>
-                                    <?php
-                                    $cont=0;
-                                    $cont2=0;
-                                    for($i = 0;$i<=$espacios_totales;$i++){
-                                        $cont+=1;
-                                        
-                                        if($cont2<=$espacios_disponibles)
-                                        {
-                                            $cont2+=1;
-                                            ?>
-                                            <td style="width: 80px; height: 60px; border: 4px solid white; background-color: darkgray; color: yellow">Libre</td>
-                                            <?php    
-                                        }
-                                        else{
-                                            $aleatorio= random_int(1,3);
-                                            ?>
-                                            
-                                            <td style="width: 80px; height: 60px; border: 2px solid white; background-image: url(images/coche<?php echo $aleatorio ?>.jpg);background-size: 100% 100%;">&nbsp</td>
-                                            <?php    
-                                        } 
-                                        ?>
+                            <table style="margin-left: auto; margin-right: auto">
+                            <tr>
+                                <?php
+                                $cont=0;
+                                $cont2=0;
+                                $cont3=0;
+                                $contf=0;
+
+                                for ($i = 0; $i <= $espacios_totales; $i++) {
+                                    $cont += 1;
+
+                                    if ($cont2 <= $espacios_disponibles) {
+                                        $cont2 += 1;
+                                        $cont3 += 1;
+                                ?>
+                                        <td style="width: 120px; height: 60px; margin: 30px; background-color: darkgray; color: yellow; border-radius: 5% / 50%; font-weight: bold">E<?php echo $cont2 ?></td>
                                         <?php
-                                        if($cont==9){
-                                            $cont=0;
-                                            ?>
-                                            
-                                            </tr>
-                                            <tr>
-                                            <?php
+                                        if ($cont3 == 2) {
+                                        ?>
+                                            <td style="width: 80px"></td>
+                                        <?php
+                                            $cont3 = 0;
                                         }
+                                        ?>
+
+                                <?php
+                                    } else {
+                                        $aleatorio = random_int(1, 3);
+                                ?>
+                                        <td style="width: 80px; height: 60px; background-image: url(images/coche<?php echo $aleatorio ?>.jpg);background-size: 100% 100%; border-radius: 15% / 40%;">&nbsp</td>
+                                <?php
+                                    }
+
+                                    if ($cont == 8) {
+                                        $cont = 0;
+                                        $contf += 1;
+                                ?>
+                                        </tr>
+                                    <?php
+                                    if ($contf == 2) {
+                                    ?>
+                                        <tr>
+                                            <td colspan="10">&nbsp</td>
+                                        </tr>
+                                    <?php
                                     }
                                     ?>
-                                    </tr>
-                            </table>
+                                    <tr>
+                                    <tr></tr>
+                                        <?php
+                                            }
+                                        }
+                                ?>
+                            </tr>
+                        </table>
+                                                    
+                            
+                            
                         <?php
                         if ($espacios_disponibles <= 0) {
                             echo "No hay espacios disponibles, lo sentimos.";
                         } else {
                             ?>
-                            <h2 style="margin-top: 50px"><?php  echo "Hay " . $espacios_disponibles . " espacios disponibles    estimado cliente!";
+                            <h2 style="margin-top: 50px ;color: white; font-weight: bold"; ><?php  echo "Hay " . $espacios_disponibles . " espacios disponibles    estimado cliente.";
                             if ($espacios_disponibles>0){
                                 ?>
-                                <h2>Deseas realizar una reserva?</h1>
+                                <h2 style ="color: #5cd2c6; margin-top :20px">¿Deseas realizar una reserva?</h1>
                                 <?php
                             }?></h2>
                            <?php
@@ -112,10 +134,10 @@ session_start(); // Iniciar
     <div class="row justify-content-center mt-4"> 
 
         <div class="card mx-3" style="width: 18rem ;">
-            <img src="images/happy.jpg" class="card-img-top" alt="...">
+            <img src="images/happy.jpg" class="card-img-top mt-3" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Planificar mi reserva</h5>
-                    <p class="card-text">Reservar un espacio escogiendo fecha y hora de entrada</p>
+                    <h5 class="card-title" style="color: red">Reserva programada</h5>
+                    <p class="card-text">Reservar un espacio escogiendo fecha y hora </p>
                     <?php
                     if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['ci'])) { ?>
                     <a class="btn btn-primary" href="javascript:cargarContenido('formreserva0.html')"  id="btnReservar" style="background-color: #41c9c9;">Reservar un espacio</a>
@@ -127,9 +149,9 @@ session_start(); // Iniciar
     
     
         <div class="card mx-3" style="width: 18rem;">
-            <img src="images/impatientdriver.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Estoy corto de tiempo</h5>
+            <img src="images/impatientdriver.jpg" class="card-img-top mt-3" alt="...">
+                <div class="card-body ">
+                    <h5 class="card-title" style="color: red">Reserva rapida</h5>
                     <p class="card-text">Estoy ahi en 30 minutos o menos.</p>
                     <?php
                     if (session_status() == PHP_SESSION_ACTIVE && isset($_SESSION['ci'])) { ?>
@@ -154,9 +176,9 @@ session_start(); // Iniciar
                 $mostrar = 1;
         ?>
         
-        <h2> Tus reservas vigentes: </h2>
+        <h2 style="color: #5cd2c6"> Tus reservas vigentes: </h2>
             <div class="card mx-3 mt-4" style="width: 18rem;">
-                <img src="images/modify.jpg" class="card-img-top" alt="...">
+                <img src="images/modify.jpg" class="card-img-top mt-3" alt="...">
                 <div class="card-body">
                     <h5 class="card-title" style="color: red">Cancelar reserva rapida</h5>
                     <p class="card-text">Quiero cancelar mi reserva rapida</p>
@@ -180,12 +202,12 @@ session_start(); // Iniciar
             }
          ?>
         <div class="card mx-3 mt-4" style="width: 18rem;">
-            <img src="images/modify.jpg" class="card-img-top" alt="...">
+            <img src="images/modify.jpg" class="card-img-top mt-3" alt="..." id="one">
             <div class="card-body">
                 <h5 class="card-title" style="color: red">Editar reserva programada</h5>
-                <p class="card-text">Quiero cancelar/modificar mi reserva programada</p>
-                <a class="btn btn-primary" onclick="eliminarReservaProgramada('<?php echo $fila3['id_reserva']; ?>')" style="background-color: #41c9c9;">Eliminar reserva programada</a>
-                <a class="btn btn-primary" onclick="editarReservaProgramada('<?php echo $fila3['id_reserva']; ?>')" style="background-color: #41c9c9;">Modificar reserva programada</a>
+                <p class="card-text" >Quiero cancelar/modificar mi reserva programada</p>
+                <a class="btn btn-primary" onclick="eliminarReservaProgramada('<?php echo $fila3['id_reserva']; ?>')" style="background-color: #41c9c9; ">Eliminar reserva programada</a>
+                <a class="btn btn-primary" onclick="editarReservaProgramada('<?php echo $fila3['id_reserva']; ?>')" style="background-color: #41c9c9; margin-top: 15px">Modificar reserva programada</a>
             </div>
         </div>
     <?php
