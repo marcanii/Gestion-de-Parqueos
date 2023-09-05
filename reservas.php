@@ -51,47 +51,44 @@ session_start(); // Iniciar
                         $espacios_ocupados = $fila["NumOcup"];
                         $espacios_disponibles = $espacios_totales - $espacios_ocupados;
                         ?>
-                            <table style="margin-left: auto; margin-right: auto">
-                            <tr>
-                                <?php
-                                $cont=0;
-                                $cont2=0;
-                                $cont3=0;
-                                $contf=0;
-
-                                for ($i = 0; $i <= $espacios_totales; $i++) {
-                                    $cont += 1;
-
-                                    if ($cont2 <= $espacios_disponibles) {
-                                        $cont2 += 1;
-                                        $cont3 += 1;
-                                ?>
-                                        <td style="width: 120px; height: 60px; margin: 30px; background-color: darkgray; color: yellow; border-radius: 5% / 50%; font-weight: bold">E<?php echo $cont2 ?></td>
-                                        <?php
-                                        if ($cont3 == 2) {
-                                        ?>
-                                            <td style="width: 80px"></td>
-                                        <?php
-                                            $cont3 = 0;
-                                        }
-                                        ?>
-
-                                <?php
-                                    } else {
-                                        $aleatorio = random_int(1, 3);
-                                ?>
-                                        <td style="width: 80px; height: 60px; background-image: url(images/coche<?php echo $aleatorio ?>.jpg);background-size: 100% 100%; border-radius: 15% / 40%;">&nbsp</td>
-                                <?php
-                                    }
-
-                                    if ($cont == 8) {
-                                        $cont = 0;
-                                        $contf += 1;
-                                ?>
-                                        </tr>
-                                    <?php
-                                    if ($contf == 2) {
+                        <table style="margin-left: auto; margin-right: auto">
+                        <tr>
+                        <?php
+                            $cont=0;
+                            $cont2=0;
+                            $cont3=0;
+                            $contf=0;
+                            for ($i = 0; $i <= $espacios_totales; $i++) {
+                                $cont += 1;
+                                if ($cont2 <= $espacios_disponibles) {
+                                    $cont2 += 1;
+                                    $cont3 += 1;
                                     ?>
+                                    <td style="width: 120px; height: 60px; margin: 30px; background-color: darkgray; color: yellow; border-radius: 5% / 50%; font-weight: bold">E<?php echo $cont2 ?></td>
+                                    <?php
+                                    if ($cont3 == 2) { ?>
+                                        <td style="width: 80px"></td>
+                                        <?php
+                                        $cont3 = 0;
+                                        } ?>
+                                    <?php
+                                } else {
+                                    $cont3 += 1;
+                                    $aleatorio = random_int(1, 3); ?>
+                                    <td style="width: 120px; height: 60px; margin: 30px; background-color: darkgray; color: yellow; border-radius: 5% / 50%; background-image: url(images/coche<?php echo $aleatorio ?>.jpg);background-size: 100% 100%; border-radius: 15% / 40%;">&nbsp</td>
+                                    <?php
+                                    if ($cont3 == 2) { ?>
+                                        <td style="width: 80px"></td>
+                                        <?php
+                                        $cont3 = 0;
+                                    }
+                                }
+                                if ($cont == 8) {
+                                    $cont = 0;
+                                    $contf += 1; ?>
+                                    </tr>
+                                    <?php
+                                    if ($contf == 2) { ?>
                                         <tr>
                                             <td colspan="10">&nbsp</td>
                                         </tr>
@@ -100,12 +97,11 @@ session_start(); // Iniciar
                                     ?>
                                     <tr>
                                     <tr></tr>
-                                        <?php
-                                            }
-                                        }
-                                ?>
+                                <?php
+                                }
+                            } ?>
                             </tr>
-                        </table>
+                        </table>
                         <?php
                         if ($espacios_disponibles <= 0) {
                             echo "No hay espacios disponibles, lo sentimos.";

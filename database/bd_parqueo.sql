@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-08-2023 a las 02:31:24
+-- Tiempo de generación: 06-09-2023 a las 01:20:22
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,9 +41,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`placa`, `ci`, `nombres`, `apellidos`, `telefono`, `descripcionvehiculo`) VALUES
-('111-ABC', '10101010', 'jose', 'miranda', 69677638, 'camioneta blanca'),
-('222-ABC', '20202020', 'nestor', 'garcia', 69677638, 'vagoneta negra'),
-('333-ABC', '30303030', 'Juan', 'Peres', 69677638, 'auto blanco');
+('111-ABC', '10101010', 'jose', 'miranda', 69677638, 'camioneta blanca');
 
 -- --------------------------------------------------------
 
@@ -67,11 +65,8 @@ CREATE TABLE `parqueo` (
 --
 
 INSERT INTO `parqueo` (`idparqueo`, `placa`, `fecha`, `horaentrada`, `horasalida`, `estado_parqueo`, `observaciones`, `estado_noti`) VALUES
-(1, '111-ABC', '2023-08-18', '21:41:05', '18:41:05', 1, 'ninguna observacion', 0),
-(3, '222-ABC', '2023-08-19', '17:51:32', '18:51:32', 1, 'ninguna', 0),
-(16, '111-ABC', '2023-08-20', '17:16:00', '18:16:00', 1, 'Reserva rapida ', 0),
 (34, '111-ABC', '2023-08-22', '19:40:00', '20:40:00', 0, 'Reserva rapida, cliente en camino ', 1),
-(56, '111-ABC', '2023-08-27', '21:30:00', '22:30:00', 0, 'Reserva rapida, cliente en camino ', 0);
+(56, '111-ABC', '2023-08-27', '21:30:00', '22:30:00', 0, 'Reserva rapida, cliente en camino ', 1);
 
 -- --------------------------------------------------------
 
@@ -94,12 +89,8 @@ CREATE TABLE `reserva` (
 --
 
 INSERT INTO `reserva` (`id_reserva`, `horainiciores`, `fechareserva`, `horafinalres`, `id_cliente`, `estado_reserva`, `comentarios`) VALUES
-(1, '00:00:00', '2023-08-20', '22:53:05', '10101010', 1, 'ninguno'),
-(2, '00:00:00', '2023-08-19', '04:53:05', '20202020', 1, 'ninguno'),
-(27, '00:08:00', '2023-08-22', '22:08:00', '20202020', 1, ''),
-(28, '21:26:00', '2023-08-25', '00:25:00', '20202020', 1, ''),
-(32, '23:48:00', '2023-08-24', '00:48:00', '20202020', 1, ''),
-(34, '20:41:00', '2023-08-27', '00:00:00', '10101010', 1, '');
+(1, '00:00:00', '2023-08-20', '22:53:05', '10101010', 0, 'ninguno'),
+(34, '20:41:00', '2023-08-27', '00:00:00', '10101010', 0, '');
 
 -- --------------------------------------------------------
 
@@ -140,8 +131,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idusuario`, `contrasena`, `nivel`) VALUES
 ('10101010', '111-ABC', 0),
-('20202020', '222-ABC', 0),
-('30303030', '333-ABC', 1);
+('admin', 'admin', 1),
+('encargado1', 'encargado1', 2);
 
 --
 -- Índices para tablas volcadas
@@ -188,19 +179,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `parqueo`
 --
 ALTER TABLE `parqueo`
-  MODIFY `idparqueo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `idparqueo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `tarifa`
 --
 ALTER TABLE `tarifa`
-  MODIFY `idtarifa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idtarifa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
