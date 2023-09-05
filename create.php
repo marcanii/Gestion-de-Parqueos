@@ -13,7 +13,7 @@ $sql="INSERT into tarifa (tipotarifa,descripciontarifa,valor) VALUES ('$tipotari
 
 if ($con->query($sql) === TRUE)#solo true si la ocnsulta se ejcuta sin errores
 {
-    echo "Se creo la tarifa correctamente";
+    echo '<div class="container w-50 mx-auto custum-container">Se creo la tarifa correctamente';
 } 
 else 
 {

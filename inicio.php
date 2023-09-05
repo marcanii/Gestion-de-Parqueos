@@ -30,6 +30,11 @@ session_start(); ?>
         .text-custom {
             font-size: 18px;
         }
+        .custum-container{
+            background-color: rgba(30, 32, 36, 0.75);
+            border-radius: 20px;
+            padding: 20px;
+        }
     </style>
 </head>
 
@@ -44,7 +49,7 @@ session_start(); ?>
 
     <nav class="navbar navbar-expand-lg border-body">
         <div class="container">
-            <a class="navbar-brand text-white text-title" href="#">
+            <a class="navbar-brand text-white text-title" href="inicio.php">
                 <img src="images/carlogo1.png" alt="Logo" width="45" height="45"
                     class="d-inline-block align-text-top" />
                 El auto dormido
@@ -88,13 +93,15 @@ session_start(); ?>
     </nav>
 
     <div class="p-5 text-center mb-5 text-white justify-content-center align-items-center main-custom" id="contenido">
-        <h1 class="mb-3">Bienvenido al parqueo "El Auto dormido"</h1>
-        <p style="width: 500px; margin: 0 auto">
-            Aquí ofrecemos los mejores servicios de estacionamiento en la ciudad.
-            Con una amplia variedad de opciones, nuestros clientes siempre
-            encuentran el mejor lugar para sus vehículos. Reserva tu espacio ahora y
-            disfruta de la comodidad de estar cerca de tus destinos favoritos.
-        </p>
+        <div class="container w-50 mx-auto custum-container">
+            <h1 class="mb-3">Bienvenido al parqueo "El Auto dormido"</h1>
+            <p style="width: 500px; margin: 0 auto">
+                Aquí ofrecemos los mejores servicios de estacionamiento en la ciudad.
+                Con una amplia variedad de opciones, nuestros clientes siempre
+                encuentran el mejor lugar para sus vehículos. Reserva tu espacio ahora y
+                disfruta de la comodidad de estar cerca de tus destinos favoritos.
+            </p>
+        </div>
     </div>
 
     <div class="container">

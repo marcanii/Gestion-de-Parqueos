@@ -2,7 +2,7 @@
 session_start(); // Iniciar
 // $espacios_totales=10;
 ?>
-<div class="container mt-4">
+<div class="container mt-4 custum-container">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
             <h2 style= "margin-bottom:50px; color: #5cd2c6">Nuestro parqueo en tiempo real:</h2>
@@ -133,7 +133,7 @@ session_start(); // Iniciar
 
     <div class="row justify-content-center mt-4"> 
 
-        <div class="card mx-3" style="width: 18rem ;">
+        <div class="card mx-3 bg-dark text-white" style="width: 18rem ;">
             <img src="images/happy.jpg" class="card-img-top mt-3" alt="...">
                 <div class="card-body">
                     <h5 class="card-title" style="color: red">Reserva programada</h5>
@@ -148,7 +148,7 @@ session_start(); // Iniciar
         </div>          
     
     
-        <div class="card mx-3" style="width: 18rem;">
+        <div class="card mx-3 bg-dark text-white" style="width: 18rem;">
             <img src="images/impatientdriver.jpg" class="card-img-top mt-3" alt="...">
                 <div class="card-body ">
                     <h5 class="card-title" style="color: red">Reserva rapida</h5>
@@ -177,7 +177,7 @@ session_start(); // Iniciar
         ?>
         
         <h2 style="color: #5cd2c6"> Tus reservas vigentes: </h2>
-            <div class="card mx-3 mt-4" style="width: 18rem;">
+            <div class="card mx-3 mt-4 bg-dark text-white" style="width: 18rem;">
                 <img src="images/modify.jpg" class="card-img-top mt-3" alt="...">
                 <div class="card-body">
                     <h5 class="card-title" style="color: red">Cancelar reserva rapida</h5>
@@ -201,7 +201,7 @@ session_start(); // Iniciar
                 <?php
             }
          ?>
-        <div class="card mx-3 mt-4" style="width: 18rem;">
+        <div class="card mx-3 mt-4 bg-dark text-white" style="width: 18rem;">
             <img src="images/modify.jpg" class="card-img-top mt-3" alt="..." id="one">
             <div class="card-body">
                 <h5 class="card-title" style="color: red">Editar reserva programada</h5>

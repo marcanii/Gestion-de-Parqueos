@@ -15,7 +15,7 @@ $sql = "UPDATE tarifa SET tipotarifa='$tipotarifa', descripciontarifa='$descripc
 #echo $sql;
 
 if ($con->query($sql) === TRUE) {
-    echo "Se actualizo la tarifa correctamente";
+    echo '<div class="container w-50 mx-auto custum-container">Se actualizo la tarifa correctamente';
 } else {
     echo "Error: " . $sql . "<br>" . $con->error;
 }

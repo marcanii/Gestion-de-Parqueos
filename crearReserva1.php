@@ -32,20 +32,21 @@ else
     $difHoras = $horainicioresObj->diff($horaActual);
     
     if ($fechaactual > $fechareserva) {
-        echo "No se permite la reserva porque la fecha de reserva ya pasó.";
+        echo '<div class="container w-50 mx-auto custum-container">No se permite la reserva porque la fecha de reserva ya pasó.';
     } 
     else if($fechareserva == $fechaactual and $difHoras->h < 3) {
-        echo "No se permite la reserva porque la hora de reserva es en menos de 3 horas.";
+        echo '<div class="container w-50 mx-auto custum-container">No se permite la reserva porque la hora de reserva es en menos de 3 horas.';
     }
     else{
             $sql2 = "INSERT INTO reserva (horainiciores, fechareserva, horafinalres, id_cliente, estado_reserva) 
             VALUES ('$horainiciores','$fechareserva','$horafinalres','$ci',1)";
     
             if ($con->query($sql2) === TRUE) {
+                echo '<div class="container w-50 mx-auto custum-container">';
                 echo "Se realizo la reserva correctamente! <br>";
                 echo "Su fecha de reserva: ".$fechareserva."<br>";
                 echo "Lo esperamos a las: ".$horainiciores."<br>";
-                echo "La reserva culmina a las: ".$horafinalres."<br>";
+                echo "La reserva culmina a las: ".$horafinalres."<br> </div>";
             } else {
                 echo "Error: " . $sql2 . "<br>" . $con->error;
             }

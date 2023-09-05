@@ -36,10 +36,11 @@ else{
        
 
         if ($con->query($sql) === TRUE) {
+            echo '<div class="container w-50 mx-auto custum-container">';
             echo "Se modofico la reserva previa correctamente! <br>";
             echo "Su fecha de reserva actualizada es: ".$fechareserva."<br>";
             echo "Lo esperamos a las: ".$horainiciores."<br>";
-            echo "La reserva culmina a las: ".$horafinalres."<br>";
+            echo "La reserva culmina a las: ".$horafinalres."<br> </div>";
         } else {
             echo "Error: " . $sql . "<br>" . $con->error;
         }
