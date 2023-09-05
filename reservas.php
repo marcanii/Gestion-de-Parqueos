@@ -106,15 +106,12 @@ session_start(); // Iniciar
                                 ?>
                             </tr>
                         </table>
-                                                    
-                            
-                            
                         <?php
                         if ($espacios_disponibles <= 0) {
                             echo "No hay espacios disponibles, lo sentimos.";
                         } else {
                             ?>
-                            <h2 style="margin-top: 50px ;color: white; font-weight: bold"; ><?php  echo "Hay " . $espacios_disponibles . " espacios disponibles    estimado cliente.";
+                            <h2 style="margin-top: 50px ;color: white; font-weight: bold"; ><?php  echo "Hay " . $espacios_disponibles + 1 . " espacios disponibles    estimado cliente.";
                             if ($espacios_disponibles>0){
                                 ?>
                                 <h2 style ="color: #5cd2c6; margin-top :20px">¿Deseas realizar una reserva?</h1>

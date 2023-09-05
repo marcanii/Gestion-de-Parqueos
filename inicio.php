@@ -6,7 +6,7 @@ session_start(); ?>
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Sitio Web</title>
+    <title>Parking</title>
     <!-- Enlace a Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
@@ -67,8 +67,12 @@ session_start(); ?>
                     <li class="nav-item">
                         <a class="nav-link text-color-custom" href="javascript:cargarContenido('tarifas.php')">Tarifas</a>
                     </li>
-                    <?php
-                    if($_SESSION['nivel'] == 1) { ?>
+                    <?php if($_SESSION['nivel'] == 2 or $_SESSION['nivel'] == 1) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link text-color-custom" href="javascript:cargarContenido('parqueos.php')">Parqueos</a>
+                    </li>
+                    <?php } ?>
+                    <?php if($_SESSION['nivel'] == 1) { ?>
                     <li class="nav-item">
                         <a class="nav-link text-color-custom" href="javascript:cargarContenido('informes.html')">Informes</a>
                     </li>
