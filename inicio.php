@@ -61,9 +61,11 @@ session_start(); ?>
                     <li>
                         <a class="nav-link text-color-custom" href="javascript:cargarContenido('presentacion.html')">Inicio</a>
                     </li>
+                    <?php if($_SESSION['nivel'] == 0 or $_SESSION['nivel'] == 1) { ?>
                     <li class="nav-item">
                         <a class="nav-link text-color-custom" href="javascript:cargarContenido('reservas.php')">Reservas</a>
                     </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link text-color-custom" href="javascript:cargarContenido('tarifas.php')">Tarifas</a>
                     </li>

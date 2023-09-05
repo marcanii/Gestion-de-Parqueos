@@ -94,8 +94,6 @@ function crear1() {
     ajax.send(parametros);
 }
 
-
-
 function eliminartarifa(idtarifa) {
     var ajax = new XMLHttpRequest();
     ajax.open('POST', 'delete.php', true);
@@ -214,5 +212,3 @@ function reservar2(button) {
     // buttonReservar2.disabled = true;
     // buttonReservar2.style.backgroundColor = "gray";
 }
-
-

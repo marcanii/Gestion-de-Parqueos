@@ -25,8 +25,6 @@ session_start(); // Iniciar
                 }else{
                     $ci = "visitante";
                 }
-                        
-                
 
                 // establecer zona horaria
                 date_default_timezone_set('America/La_Paz');
@@ -107,42 +105,55 @@ session_start(); // Iniciar
                 }
                 ?>
         <br>
-        <div class="col-md-4">
-            <div class="card bg-dark text-white p-4">
-                <div class="card-header">
-                    <h3>Registrar Cliente</h3>
-                </div>
-                <img src="images/registrar-cliente.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <!-- Contenido del informe 1 -->
-                    <p class="text-custom">Registrar un cliente que nunca fue registrado en el sistema para que pueda reservar un parqueo.
-                        Ademas de registrar el cliente, se registra el parqueo.
-                    </p>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12">
-                        <a class="btn bg-btn-custom text-white" href="form_parqueo.html">Registrar</a>
+        <div class="container mt-5">
+        <h1 class="">Gestion de parqueos</h1>
+        <hr>
+        <div class="row">
+            <!-- Agregar Usuario Card -->
+            <div class="col-md-3">
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">Agregar parqueos</h3>
+                        <p class="card-text">Haz clic para agregar un nuevo parqueo.</p>
+                        <a href="form_parqueo_add.html" class="btn btn-primary">Agregar</a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card bg-dark text-white p-4">
-                <div class="card-header">
-                    <h3>Parqueos</h3>
-                </div>
-                <img src="images/registrar-parqueo.avif" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <!-- Contenido del informe 2 -->
-                    <p class="text-custom">Muestra los parqueos que estan disponibles y los que estan ocupados. Muestra el estado del parqueo, si esta ocupado o disponible.
-                    </p>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <a class="btn bg-btn-custom text-white">Ver parqueos</a>
+
+            <!-- Actualizar Usuario Card -->
+            <div class="col-md-3">
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">Actualizar parqueo</h3>
+                        <p class="card-text">Haz clic para actualizar un parqueo existente.</p>
+                        <a href="search_parqueo.html" class="btn btn-warning">Actualizar</a>
                     </div>
-                </div> 
-            </div>  
+                </div>
+            </div>
+            <?php if($_SESSION['nivel'] == 1) { ?>
+            <!-- Buscar Usuario Card -->
+            <div class="col-md-3">
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">Lista de usuarios</h3>
+                        <p class="card-text">Haz clic para listar todos los usuarios.</p>
+                        <a href="listar.php" class="btn btn-info">Lista de usuarios</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eliminar Usuario Card -->
+            <div class="col-md-3">
+                <div class="card bg-dark text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">Eliminar usuarios</h3>
+                        <p class="card-text">Haz clic para eliminar un usuarios existente.</p>
+                        <a href="delete.html" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
+    </div>
     </div>
 </div>

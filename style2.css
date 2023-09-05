@@ -42,3 +42,6 @@
     background-color: rgba(0, 0, 0, 0.5); /* Negro con una opacidad del 50% */
     margin: 0 auto;
 }
+.bg-icon-custom{
+    background-color: #5cd2c6;
+}
