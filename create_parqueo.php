@@ -23,9 +23,7 @@ VALUES ('$placa', '$fecha', '$horaActual', '$hora_salida', '$estado_parqueo', '$
 // ejecutar las consultas
 if ($con->query($query1) === TRUE) {
     if ($con->query($query2) === TRUE) {
-        echo 'Se registro el parqueo correctamente';
-        // redireccionar a la pagina inicio despues de 3 segundos con js
-        echo '<script>setTimeout(function () { window.location.href = "inicio.php"; }, 3000);</script>';
+        echo "<script>alert('Se registro el parqueo correctamente.'); window.location.href='inicio.php';</script>";
     } else {
         echo "Error: " . $query2 . "<br>" . $con->error;
     }
