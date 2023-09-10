@@ -71,7 +71,6 @@
                     
                     <table>
                     <tr>
-                        <th>Id Tarifa</th>
                         <th>Tipo tarifa</th>
                         <th>Descripcion</thtd>
                         <th>Precio</th>
@@ -89,7 +88,6 @@
                     while ($fila = $resultado->fetch_assoc()) {
                     ?>
                     <tr>
-                        <td><?php echo $fila["idtarifa"]; ?></td>
                         <td><?php echo $fila["tipotarifa"]; ?></td>
                         <td><?php echo $fila["descripciontarifa"]; ?></td>
                         <td><?php echo $fila["valor"]; ?></td>

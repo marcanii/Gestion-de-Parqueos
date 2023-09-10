@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-09-2023 a las 01:20:22
+-- Tiempo de generación: 10-09-2023 a las 22:13:43
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,7 +41,18 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`placa`, `ci`, `nombres`, `apellidos`, `telefono`, `descripcionvehiculo`) VALUES
-('111-ABC', '10101010', 'jose', 'miranda', 69677638, 'camioneta blanca');
+('111-ABC', '10101010', 'jose', 'miranda', 69677638, 'camioneta blanca'),
+('222-ABC', '96', 'Nulla est et reicie', 'Consequatur Tempore', 28, 'Voluptas a explicabo'),
+('A inventore', '5', 'Est tempora beatae a', 'Esse dolore adipisc', 80, 'Ad minima ullam pari'),
+('Accusamus n', '26', 'Pariatur Molestiae ', 'Autem et qui eiusmod', 57, 'Sapiente sequi aliqu'),
+('Alias qui p', '960', 'Soluta reprehenderit', 'Elit qui exercitati', 73, 'Sunt unde ad ea qui '),
+('Dolore cons', '643', 'Dolore incidunt ut ', 'Voluptate mollitia n', 59, 'Ipsa libero omnis d'),
+('Eos sint ni', '40', 'Reiciendis nisi adip', 'Rerum id voluptatem', 4, 'Quaerat tenetur inve'),
+('Est id eum ', '20', 'Expedita quod beatae', 'Numquam sapiente rat', 3, 'Nemo saepe excepturi'),
+('Non nobis f', '635', 'Obcaecati sunt dolor', 'Aut vitae dicta sed ', 29, 'Dicta voluptas quia '),
+('Numquam ill', '32', 'Et veniam ipsam vol', 'Aliqua Dolore corru', 34, 'Ipsum in non ducimu'),
+('Pariatur No', '100', 'Nostrud dolor suscip', 'Rerum dolor dolorem ', 4, 'In commodi porro off'),
+('Tempor in d', '64', 'Est quibusdam esse ', 'Sit sed ad cupidata', 37, 'Architecto nesciunt');
 
 -- --------------------------------------------------------
 
@@ -56,6 +67,7 @@ CREATE TABLE `parqueo` (
   `horaentrada` time NOT NULL,
   `horasalida` time NOT NULL,
   `estado_parqueo` int(5) NOT NULL,
+  `costo_total` double NOT NULL,
   `observaciones` varchar(120) NOT NULL,
   `estado_noti` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -64,9 +76,19 @@ CREATE TABLE `parqueo` (
 -- Volcado de datos para la tabla `parqueo`
 --
 
-INSERT INTO `parqueo` (`idparqueo`, `placa`, `fecha`, `horaentrada`, `horasalida`, `estado_parqueo`, `observaciones`, `estado_noti`) VALUES
-(34, '111-ABC', '2023-08-22', '19:40:00', '20:40:00', 0, 'Reserva rapida, cliente en camino ', 1),
-(56, '111-ABC', '2023-08-27', '21:30:00', '22:30:00', 0, 'Reserva rapida, cliente en camino ', 1);
+INSERT INTO `parqueo` (`idparqueo`, `placa`, `fecha`, `horaentrada`, `horasalida`, `estado_parqueo`, `costo_total`, `observaciones`, `estado_noti`) VALUES
+(34, '111-ABC', '2023-08-24', '07:40:00', '08:40:00', 0, 15, 'Reserva rapida, cliente en camino ', 1),
+(82, '222-ABC', '2023-09-10', '10:47:30', '12:47:30', 0, 10, 'Sint enim voluptas i', 0),
+(83, 'Tempor in d', '2023-09-10', '11:52:52', '15:00:00', 0, 2, 'Similique ad occaeca', 0),
+(84, 'Numquam ill', '2023-09-10', '11:53:09', '20:00:00', 0, 7, 'Dolore ut delectus ', 0),
+(85, 'Pariatur No', '2023-09-10', '14:17:01', '15:00:00', 0, 5, 'Et dolorem officia l', 0),
+(86, 'Est id eum ', '2023-09-10', '14:17:13', '23:49:00', 0, 7, 'Neque sit praesenti', 0),
+(87, 'Alias qui p', '2023-09-10', '15:17:40', '22:00:00', 0, 3, 'In beatae consequatu', 0),
+(88, 'Dolore cons', '2023-09-10', '15:18:05', '22:00:00', 0, 5, 'Modi vitae voluptate', 0),
+(89, 'A inventore', '2023-09-10', '16:20:36', '21:00:00', 0, 8, 'At id porro tempora', 0),
+(90, 'Non nobis f', '2023-09-10', '16:21:23', '23:07:00', 0, 3, 'Est aut nisi sed ips', 0),
+(91, 'Accusamus n', '2023-09-10', '17:02:53', '17:19:00', 0, 1, 'Repellendus Veniam', 0),
+(92, 'Eos sint ni', '2023-09-10', '17:03:05', '18:05:00', 0, 3, 'Cupiditate autem lab', 0);
 
 -- --------------------------------------------------------
 
@@ -110,8 +132,9 @@ CREATE TABLE `tarifa` (
 --
 
 INSERT INTO `tarifa` (`idtarifa`, `tipotarifa`, `descripciontarifa`, `valor`) VALUES
-(5, 'reserva rapida', '15% extra de tarifa normal', 25),
-(6, 'reserva planeada', '5% mas de costo normal', 8);
+(5, 'reserva rapida', '15% extra de tarifa normal', 10),
+(6, 'reserva planeada', '5% mas de costo normal', 5),
+(10, 'Hora', 'Tarifa regular', 5);
 
 -- --------------------------------------------------------
 
@@ -179,7 +202,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `parqueo`
 --
 ALTER TABLE `parqueo`
-  MODIFY `idparqueo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `idparqueo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT de la tabla `reserva`
@@ -191,7 +214,7 @@ ALTER TABLE `reserva`
 -- AUTO_INCREMENT de la tabla `tarifa`
 --
 ALTER TABLE `tarifa`
-  MODIFY `idtarifa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idtarifa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restricciones para tablas volcadas

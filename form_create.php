@@ -45,6 +45,7 @@ include('conexion.php');
         <div class="form-group">
             <label for="tipotarifa">Tipo tarifa:</label>
             <select name="tipotarifa" id="tipotarifa">
+                <option value="Hora">Hora</option>
                 <option value="Diaria">Diaria</option>
                 <option value="Semanal">Semanal</option>
                 <option value="Mensual">Mensual</option>
