@@ -116,6 +116,7 @@
             // graficar los datos de la tabla
             const canvas = document.getElementById('grafica');
             // Verifica si ya existe un gráfico en el canvas y destrúyelo si es necesario
+            // Verifica si ya existe un gráfico y destrúyelo si es necesario
             if (miGrafico !== null) {
                 miGrafico.destroy();
             }

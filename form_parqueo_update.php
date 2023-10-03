@@ -139,11 +139,19 @@ if ($row > 0) {
                         <input class="form-control bg-light" type="text" placeholder="Observaciones" name="observaciones" required value="<?php echo $row['observaciones'] ?>"/>
                     </div>
                 </div>
+                <div class="col-md-6 form-group">
+                    <label for="fechaentrada">Costo Toral:</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/dinero.png" width="20" height="20">
+                        </div>
+                        <input class="form-control bg-light" type="number" placeholder="Costo Total" name="costototal" required value="<?php echo $row['costo_total'] ?>"/>
+                    </div>
             </div>
-    
             <input type="button" value="Actulizar" class="btn bg-btn-custom text-white w-25 mt-4 fw-semibold shadow-sm" onclick="updateParqueo()">
         </form>
-        <a href="search_parqueo.html" class="btn bg-btn-custom text-white w-25 mt-2 fw-semibold shadow-sm">Cancelar</a>
+        <a href="search_parqueo.html" class="btn bg-btn-custom text-white w-25 mt-4" style="margin-left:10px;">Cancelar</a>
+        <a href="inicio.php" class="btn bg-btn-custom text-white w-25 mt-4" style="margin-left:10px;">Inicio</a>
     </div>
 </body>
 </html>

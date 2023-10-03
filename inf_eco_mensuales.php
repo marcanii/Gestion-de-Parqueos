@@ -46,28 +46,28 @@
         </div>
 
         <hr style="color:white;">
-
-
         <table class="table table-dark table-bordered" id="tableToExport">
-           
+            <thead>
+                <tr>
+                    <th>Descripcion</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrarán los registros de la base de datos -->
+            </tbody>
         </table>
-
-
         <hr style="color:white;">
         <h1 class="text-white">Gráfica</h1>
-
         <div>
             <canvas id="grafica"></canvas>
         </div>
-        
         <hr style="color:white;">
         <div class="">
             <a href="inicio.php" class="btn bg-btn-custom mx-3">Volver</a>
         </div>
         <hr style="color:white;">
     </div>
-
-
     <script>
         // Función para cargar automáticamente los registros al cargar la página
         window.onload = function () {
@@ -99,7 +99,6 @@
         // funcion que pasa por ajax la fecha seleccionada y devuelve un array con los datos
         function obtenerDatos() {
             var mesSeleccionado = document.getElementById("mes").value;
-            mesSeleccionado = parseInt(mesSeleccionado);
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "cant_autos_mensual.php?mes=" + mesSeleccionado, true);
 
@@ -107,7 +106,7 @@
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var dataJSON = xhr.responseText;
                     var datos = JSON.parse(dataJSON); // Convierte el JSON en un objeto JavaScript
-                    //console.log('entro a graficar...');
+                    //console.log(datos); // Accede a los datos como un objeto JavaScript
                     graficar(datos);
                 }
             };
@@ -120,10 +119,11 @@
             // graficar los datos de la tabla
             const canvas = document.getElementById('grafica');
             // Verifica si ya existe un gráfico en el canvas y destrúyelo si es necesario
+            // Verifica si ya existe un gráfico y destrúyelo si es necesario
             if (miGrafico !== null) {
                 miGrafico.destroy();
             }
-            miGrafico = new Chart(canvas, {
+            miGrafico_auto = new Chart(canvas, {
                 type: 'line',
                 data: {
                     labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,
