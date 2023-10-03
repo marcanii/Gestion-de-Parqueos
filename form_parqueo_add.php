@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Parqueo</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .bg-custom {
+            background-color: #171b177a;
+        }
+        .bg-icon-custom{
+            background-color: #5cd2c6;
+        }
+        .color-text-custom{
+            color: #5cd2c6;
+        }
+        .bg-btn-custom{
+            background-color: #5cd2c6;
+        }
+        .bg-btn-custom:hover{
+            background-color: #8ecbcf;
+        }
+    </style>
+</head>
+<body class="bg-dark d-flex justify-content-center align-items-center vh-auto p-5">
+    <?php 
+    include('conexion.php');
+    $query = "SELECT * FROM tarifa";
+    $result = $con->query($query);
+    $options = "";
+    
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $tipo = $row['tipotarifa'];
+            $isSelected = ($tipo == "Insitum") ? "selected" : "";
+            $options .= "<option value='$tipo' $isSelected>$tipo</option>";
+        }
+    }
+    
+    ?>
+    <div class="p-5 rounded-5 text-secondary shadow bg-custom" style="width: 45rem">
+        <div class="d-flex justify-content-center">
+            <img src="./assets/add-user.png" width="100" height="100">
+        </div>
+        <div class="text-center fs-1 fw-bold text-white">Registrar Parqueo</div>
+        <form action="create_parqueo.php" method="post">
+            <div class="row mt-2">
+                <div class="col-md-6 form-group">
+                    <label for="ci">CI:</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/ci.png" width="20" height="20">
+                        </div>
+                        <input class="form-control bg-light" type="number" placeholder="Carnet" name="ci" required/>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="nombres">Nombres:</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/names.png" width="20" height="20">
+                        </div>
+                        <input class="form-control bg-light" type="text" placeholder="Nombres" name="nombres" required/>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row mt-2">
+                <div class="col-md-6 form-group">
+                    <label for="apellidos">Apellidos:</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/names.png" width="20" height="20">
+                        </div>
+                        <input class="form-control bg-light" type="text" placeholder="Apellidos" name="apellidos" required/>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/phone.png" width="20" height="20">
+                        </div>
+                        <input class="form-control bg-light" type="number" placeholder="Teléfono" name="telefono" required/>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row mt-2">
+                <div class="col-md-6 form-group">
+                     <label for="placa">Placa:</label>
+            
+                        <div class="input-group mt-1">
+
+                            <div class="input-group-text bg-icon-custom">
+                             <img src="./assets/placa.png" width="20" height="20">
+                            </div>
+                            <input 
+                                class="form-control bg-light" 
+                                type="text" 
+                                placeholder="Placa" 
+                                name="placa" 
+                                pattern="^[0-9]{4}[A-Z]{3}$"
+                                title="La placa debe tener el formato 0000AAA(4 numeros y 3 letras))"
+                                required/>
+                        </div>
+                </div>
+
+
+
+                <div class="col-md-6 form-group">
+                    <label for="descripcion">Descripcion Vehículo:</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/descrip-vehiculo.png" width="20" height="20">
+                        </div>
+                        <input class="form-control bg-light" type="text" placeholder="Descripcion Vehículo" name="descripcion" required/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-6 form-group">
+                    <label for="fechaentrada">Hora de salida(Estimada):</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/hora-salida.png" width="20" height="20">
+                        </div>
+                        <input class="form-control bg-light" type="time" placeholder="Hora de Salida" name="horasalida" required/>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="fechasalida">Estado Parqueo:</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/activo.png" width="20" height="20">
+                        </div>
+                        <select name="estado" id="estado" class="form-control btn-light" required>
+                            <option value="" disabled selected>Estado parqueo</option>
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-6 form-group">
+                    <label for="observaciones">Tipo entrada:</label>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text bg-icon-custom">
+                            <img src="./assets/observaciones.png" width="20" height="20">
+                        </div>
+                        <select class="form-control bg-light" name="observaciones" required>
+                            <?php echo $options; ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <input type="submit" value="Registrar" class="btn bg-btn-custom text-white w-25 mt-4 fw-semibold shadow-sm">
+        </form>
+        <a href="inicio.php" class="btn bg-btn-custom text-white w-25 mt-2 fw-semibold shadow-sm">Cancelar</a>
+    </div>
+</body>
+</html>
